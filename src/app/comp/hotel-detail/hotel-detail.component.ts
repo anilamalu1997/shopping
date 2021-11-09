@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductListService } from 'src/app/product-list.service';
 
 @Component({
   selector: 'app-hotel-detail',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotel-detail.component.scss']
 })
 export class HotelDetailComponent implements OnInit {
-
-  constructor() { }
+list:any=[];
+  constructor(private productDetail:ProductListService) { }
 
   ngOnInit(): void {
+    this.list= this.productDetail.item;
+   console.log(this.list.location);
+  }
   }
 
-}
+

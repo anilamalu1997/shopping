@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 // import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { ProductListService } from '../product-list.service';
 import { BehaviorSubject } from 'rxjs';
 //import { map } from "rxjs/operators";
 //import { Http } from '@angular/http';
@@ -13,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProductService {
   //http: any;
-  public cartItemList: any = [];
+  // public cartItemList: any = [];
 
   constructor(private http: HttpClient) { }
   //  public cartItemList : any = []
@@ -25,8 +26,15 @@ export class ProductService {
   // }
   fetchData() {
     return this.http.get('assets/json/hotels.json');
+    
   }
 
+  getProduct(id:any){
+
+    
+    // return this..find(
+    //   this.detailItem.id === id);
+      }
   
   // getProduct(){
   //   return this.productList.asObservable();

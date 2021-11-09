@@ -10,7 +10,7 @@ import { details } from 'src/app/modals/productDetails';
 export class ProductComponent implements OnInit {
 
   public productList: Array<details> = [];
- 
+  
   
  
    
@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit {
         this.productList = [...response];
         //console.log(this.productList.length);
       // console.log(this.productList);
-        // console.log(response.length);
+        // console.log(this.productList);
       }
 
       
@@ -49,16 +49,10 @@ export class ProductComponent implements OnInit {
   
     }
   
-   create(){
-     //console.log(this.name,this.empoloyeeID);
-  //  let Obj = new details();
-  //  Obj.name = "something";
-  //  employeeId = 12; 
-  //  this.empList.push(customObj);
-  //  this.name ="";
-  //  this.empoloyeeID = 0;
-   }
-  
+   
+    getProduct(id:any){
+      // return (this.productList.)
+    }
   
 
   

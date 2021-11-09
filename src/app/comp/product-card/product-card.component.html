@@ -17,7 +17,7 @@
 
     <div class="card">
       <div>
-        <a [routerLink]="['/view',detailItem.id]  ">
+        <a [routerLink]="['/hotel',detailItem.id]" (click)="viewCart(detailItem)">
           <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
           <img src="\assets\img\location\{{detailItem.location}}.png" alt="Card image cap">
         </a>
@@ -30,8 +30,8 @@
       <div class="card-body">
         <h3 class="card-sub align-middle">{{detailItem.name}}</h3>
         <p class="time-card">Rs.{{detailItem.price}}</p>
-        <a class="right">
-          <mat-icon (click)="viewCart()" aria-hidden="false" aria-label="Example home icon"><span
+        <a class="right" [routerLink]="['/view']">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"><span
               class="material-icons">
               shopping_cart
             </span></mat-icon>
