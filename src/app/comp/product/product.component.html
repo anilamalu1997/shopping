@@ -1,0 +1,14 @@
+<div>
+  
+    <div *ngIf="productList.length > 0">    
+      <div *ngFor="let detailItem of productList" class="grid">
+        <app-product-card [detailItem]="detailItem"></app-product-card>        
+      </div>    
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div>          
+        <h5 >No product Available!!</h5>
+    </div>
+</ng-template>
+
