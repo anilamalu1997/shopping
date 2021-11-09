@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 // import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { ProductListService } from '../product-list.service';
+
 import { BehaviorSubject } from 'rxjs';
 //import { map } from "rxjs/operators";
 //import { Http } from '@angular/http';

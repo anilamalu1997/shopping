@@ -8,7 +8,7 @@ item:any=[];
   constructor() { }
 
 
-  viewCart(item:any){
+  viewProduct(item:any){
    this.item=item;
   }
 }

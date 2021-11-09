@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { details } from 'src/app/modals/productDetails';
 import { CartService } from 'src/app/service/cart.service';
 import { ProductService } from 'src/app/service/product.service';
-import { ProductListService } from 'src/app/product-list.service';
+import { ProductListService } from 'src/app/service/product-list.service';
 
 
 
@@ -27,32 +27,15 @@ export class ProductCardComponent implements OnInit {
   //  flag:boolean=false;
   //  spin:boolean=false;
   //  fav=false;
-  constructor(private productService: ProductService, private route:ActivatedRoute, private productDetail: ProductListService) { }
+  constructor(private cartService:CartService, private route:ActivatedRoute, private productDetail: ProductListService) { }
 
   ngOnInit(): void {
 
-    this.productService.fetchData().subscribe((response: any) => {
-      
-
-
-      if (response !== undefined &&
-        response.length > 0) {
-        this.productList = [...response];
-        
-      }
-
-      
-    })
-    
-
-
-
-
-  }
+     }
 
   
-  viewCart(item:any) {
-    this.productDetail.viewCart(item);
+  viewProduct(item:any) {
+    this.productDetail.viewProduct(item);
 
     //  id = this.route.snapshot.params['id'];
    
@@ -68,6 +51,11 @@ export class ProductCardComponent implements OnInit {
     //   response.length > 0) {
     //   this.productList = [...response]; });
   // return this.detailItem.find(this.detailItem=>this.detailItem.id === id);
+  }
+
+  addToCart(name:any){
+    this.cartService.addToCart(name);
+    //console.log(name);
   }
 
   

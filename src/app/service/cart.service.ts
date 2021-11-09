@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+name:any=[];
+  
+  constructor() { }
 
-  constructor(private http: HttpClient) { }
-
-  public cartItemList: any = []
-  public productList = new BehaviorSubject<any>([]);
+ 
 
 
 
@@ -23,9 +23,9 @@ export class CartService {
   //   this.cartItemList.push(...product);
   //   this.cartItemList.next(product);
   // }
-
+   
   addToCart(name: any) {
-    this.cartItemList.push(name);
+    this.name=name;
     // this.productList.next(this.cartItemList);
         // this.getTotalPrice();
     
