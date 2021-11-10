@@ -30,7 +30,7 @@
       <div class="card-body">
         <h3 class="card-sub align-middle">{{detailItem.name}}</h3>
         <p class="time-card">Rs.{{detailItem.price}}</p>
-        <a class="right"  (click)="addToCart(detailItem)">
+        <a class="right" (click)=addToCart(detailItem) >
           <mat-icon aria-hidden="false" aria-label="Example home icon"><span
               class="material-icons">
               add_shopping_cart

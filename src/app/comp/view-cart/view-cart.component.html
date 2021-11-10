@@ -1,4 +1,5 @@
-<ng-container *ngIf="true">
+<!-- <ng-container *ngIf="product.length !=0"> -->
+<div class="cart-item" >
     <div class="container">
         <div class="card-table">
             <div class="cart-product">
@@ -11,36 +12,50 @@
                             <th>Total Price</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <td>{{cart.name}}</td>
-                        <td>1</td>
-                        <td>{{cart.price}}</td>
-                        <td>total</td>
-                        <td>
-                            <button class="btn ">Remove</button>
-                        </td>
-                        <td>
-                            <button class="btn">Remove All</button>
-                        </td>
+                        <tr *ngFor="let item of product, let i = index">
+                            <td>{{item.name}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.total}}</td>
+                            <td>
+                                <button class="btn" (click)="removeItem(item)" class="btn ">Remove</button>
+                            </td>
+                            <td>
+                                <button class="btn">Remove All</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>Cart Price</td>
+
+                            <td>Rs {{grandTotal}}</td>
+                            <td><button class ="btn" (click)="emptyCart">Empty Cart</button></td>
+                        </tr>
                     </tbody>
-                </table>
-            </div>
+            
+           
+            </table>
         </div>
     </div>
-</ng-container>
+</div>
+</div>
+<!-- </ng-container> -->
 
 
-<ng-container *ngIf="false">
+
+<!-- 
+<ng-container *ngIf="product.length == 0">
     <div class="container">
         <div class="card">
-            <h5 class="card-title">My Cart </h5>
+            <h5 class="card-title"> </h5>
         </div>
         <div class="center">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAACTCAMAAADRPYkiAAAAsVBMVEX////w8PD/3wD/QTz+/v68vLz7+/vt7e309PTq6ur4+Pjz8/P/97//73//5z//cGzV1dX/n50kaNb/z87k5OT/8/Ld3d3//e//61//8Y//5+b/29r/h4TJycn/4yD/q6n/+c//6U//ZF//5TD/+9//9a//85//TEj/w8H/t7X/e3j/lJH/WFT/7W+2zfJsmePr8fzS4PeAqOcycthol+NbjuDe6PlPht6HrOnI2fWzy/FAVP57AAAFYElEQVR4nO3ceXuaMBwHcIEqt1qqeLTWq2rvdu3WrXv/L2whiBw5CRh49uT7z1Yq8OkvIUEQO53S+fFafh2Z+XoLPpo20PL+EQTBW9MKSr4+ATD42TSDFljDX8jirY7ktgFdnK+fwW9kIQrUda8B3DHfaD9smRATJaweJaweAeF8uTEM4/r406NhHG7uWyQcPwBSlKvjggH86fB0TVlJpvDJSHITL5ifFjyfyVhSaKSBLTt+TBdctkI4yBBv7q9gj8yRGxdeGuSMWyG8JgMH5wGWPpYPRCFnN7zJrbSsX/hI8KXDDz3z/EoHdtfACVeU1y+JQi5goYQ8RQSgfiFr2utBDTbFvRiDx0MyPjIyLvaSZw7hjGvTKbGTGxWTLjjnWxttAuYYxZqFB7jpDCPkzDMiZA4Bur6e0H4PWvT5qVggYeED2n0N1mTJOpbvwTY2xQNOWDjACFkdmPVeb4wBCgvx433VuWiDAoWFyCBQrgUIecD8iaL7wALPMl2KCpeDJGA2Of3/HOdE1dvpfCcayfaJwpXPuYXGhFv9jm8LTQl9MAPwbYEqvBAJl/AuGk93FYVCvAJyUxA+JL/owxGfOo12ssfyEw3Y4w5KnC8vszkBZ/GkRD9YGENhaV5eSd01EPpxahAy95W+vtdznNTIuZq4ENav9DYdaJQiFANC4tEoQdgT2cmFBYn1FPEqE+TsVbCEnY5l1VhEWsSFmnUsYs2iYoSbydFcKy5izaJiBLshqKGpuXERaxYV03ohnEyE1oyElizhhVM+Pcs2NXlCrXycWOi0WOgehYLdWAmVUAmVUAmVUAnbKpyil86n7RLibj/8J8Jht9sdShLOvExmbRTm7tR5zQon6MVECcIJejT2SVc1py9NCDHDxWm8KMTD3HtlCC+qCyc6ctc83Uc+k1td35YUdqoL92jF1oTr635U3uItdqqwV4cQw9kTblLAa8a1CEeLxaIbBfw7YgjvcE0KltHvAFSuYdhNErJqOMMdFuDg2Z9XCNuYBMwLt7iPRuwwR4SgkDjaxER8R8wK7/Af2AZ74bqhV0GoLfiOlBcg9NDc8n8sRlhoLroLky28xZ2awPB+Fl5YqJlDAjAnJAIJg3ZpIXk8pKRBYTQClhdOd7t1flL2X8oJp34mU5owOjrsssLtcTcpMF8IDiGp/Kgw5CsiKpxkNx/dC8XONDUITTjTYUdpSiuvfb+f2/7e87YCwqm3Zwq1RZeQEUVY/UiBic419vlVMcKQJAzPL4w6h8cUmiShfX5hn6uGpGbOHz6IsHjq4IkI9fXuhd0PSc08rCT89eeb8qaQUn6c0ObohqhwVdjpKlqYzssfQfD59uoQhJ6PJPmLsbMevpk1onAF3jihHwbxwdKU/Ro9G/j5RS4jKdgzB2wzL8hCnrxHwB/lgXghtpnDasLO7yD4FgASzr5wzTyqKPwjBiQIcc2sVRR+/xUCEoSYZi6+GWj6KnE4zGaBdsPGhWi3LL4baJcQHWuaF5qjTEJMN2xYaGJGm3b1wyEKrD4e1irEAYvt3AZhCPvgcbBpmRC2cnr02u1rZRMQs1c1w9YdKRESXdQyITNKqIRKqIRKqIRKqIRKqITNCYXWVMIkSlg94kJT4vMppJsc9JgSn/FxhJ55tCU9JxVfyBZYT5MqdASevbVNec/rgWZ2Sja0Y9pJCeUIAdHVXDCVmVyxQUAFJT43GgktF/psvpgRMCmhjCdbIdHiL2J0Ycy1khLKEUZd0XJdl/PExoU+OcATERr546TP+ksRxl+VUO650Tq/i4CHmHydA7eO+wsd6iOW/MqJst8CUYeQ15l7uRQgquSMNJxKLv8AoI6cylDlJU4AAAAASUVORK5CYII="
                 alt="">
             <h4>Your cart is Empty!</h4>
-            <h6>Add item to it now</h6>
-            <button class="btn btn-primary">Shop now</button>
+           
         </div>
     </div>
-</ng-container>
+</ng-container> -->

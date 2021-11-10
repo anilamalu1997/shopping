@@ -8,5 +8,6 @@ export class details{
     price: any;
     starRating:any;
     location: any;
+    
    
 }

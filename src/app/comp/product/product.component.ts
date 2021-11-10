@@ -38,6 +38,9 @@ export class ProductComponent implements OnInit {
       if (response !== undefined &&
         response.length > 0) {
         this.productList = [...response];
+        this.productList.forEach((a:any)=>{
+          Object.assign(a,{quantity:1,total:a.price});
+        });
         //console.log(this.productList.length);
       // console.log(this.productList);
         // console.log(this.productList);
