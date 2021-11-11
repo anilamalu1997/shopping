@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "name": "",
+      "review": "",
+      "id": 2
+    },
+    {
+      "name": "hi",
+      "review": "hello",
+      "id": 3
+    },
+    {
+      "name": "good",
+      "review": "mng",
+      "id": 4
+    },
+    {
+      "name": "me",
+      "review": "mummy",
+      "id": 5
+    },
+    {
+      "name": "gud",
+      "review": "n8",
+      "id": 6
+    },
+    {
+      "name": "anila",
+      "review": "mohan",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

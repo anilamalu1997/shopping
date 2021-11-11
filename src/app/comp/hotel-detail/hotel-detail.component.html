@@ -21,9 +21,51 @@
                 class="material-icons">
                 add_shopping_cart
               </span></mat-icon>Add to Cart</button>
-            <button class="btn"><mat-icon aria-hidden="false" aria-label="Example home icon"><span
+            <button  class="btn" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal"><mat-icon aria-hidden="false" aria-label="Example home icon"><span
                 class="material-icons review">rate_review</span></mat-icon>Add Review</button>
         </div>
     </div>
-
+<h3>Review</h3>
+    <table>
+        <tbody>
+            <tr *ngFor=" let row of reviewData">
+                <td scope="col">{{row.name}}</td>
+                <td scope="col">{{row.review}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text"  formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                  
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Review</label>
+                  <input type="text" formControlName="review" class="form-control" id="exampleInputPassword1" >
+                </div>
+               
+              </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button (click)="postReview()" type="button" class="btn btn-primary">Add Review</button>
+        </div>
+      </div>
+    </div>
+  </div>
