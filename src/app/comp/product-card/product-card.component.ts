@@ -22,6 +22,7 @@ export class ProductCardComponent implements OnInit {
   public detailItem: details = new details;
 
   public productList: Array<details> = [];
+  item: any;
 
   // response:any;
   // public confirmationMessage = '';
@@ -59,6 +60,8 @@ this.productService.fetchData().subscribe((response: any) => {
   viewProduct(item:any) {
     this.productDetail.viewProduct(item);
   }
+
+
     //  id = this.route.snapshot.params['id'];
    
     //  return this.productList.find(details=>this.detailItem.id === id);

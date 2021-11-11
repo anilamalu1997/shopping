@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { reviewModal } from 'src/app/modals/review';
 import { ApiService } from 'src/app/service/api.service';
 import { details } from 'src/app/modals/productDetails';
-
+import { review } from 'src/app/modals/getReview';
 
 @Component({
   selector: 'app-hotel-detail',
@@ -13,11 +13,17 @@ import { details } from 'src/app/modals/productDetails';
 })
 export class HotelDetailComponent implements OnInit {
 
+public reviewList: Array<review> =[];
+public specificReview: review = new review;
+
 formValue !: FormGroup;
 reviewModelObj : reviewModal = new reviewModal;
 id : details = new details;
 list:any=[];
 reviewData !:any;
+data :any;
+
+
 
 
   constructor(private productDetail:ProductListService, private formBuilder: FormBuilder, private api:ApiService) { }
@@ -28,40 +34,69 @@ reviewData !:any;
   this.formValue = this.formBuilder.group({
     name:[''],
     review:['']
+
   })
 
-  this.getAllReview();
+ // this.getAllReview();
+
+  this.api.getReview().subscribe((res:any)=>{
+    if(res !== undefined && res.length > 0){
+      this.reviewList = [...res];
+
+    }
+  })
 
   }
 
 postReview(){
   this.reviewModelObj.name = this.formValue.value.name;
   this.reviewModelObj.review = this.formValue.value.review;
+  this.reviewModelObj.unique = this.productDetail.item;
+
   // this.id.id=this.productDetail.item;
 
 
-  
+
   this.api.postReview(this.reviewModelObj)
   .subscribe(res=>{
-    console.log(res);
+
+    // console.log(res);
     alert("Review added succesfully")
+    this.viewReview(res);
     this.formValue.reset();
-    this.getAllReview();
+     this.getAllReview();
+    
   },
   err=>{
     alert("something went wrong")
-  
+
   })
 }
 
 getAllReview(){
   this.api.getReview()
   .subscribe(res=>{
-    this.reviewData = res;
+      this.data = res;
+      this.reviewData = this.data;
+      // console.log(this.reviewData);
+      // console.log(this.data);
+    // if (this.data.unique === this.reviewModelObj.unique)
+    // {
+     
+    // }
 
+
+    
   })
 }
 
-  }
+viewReview(item:any){
+this.api.viewReview(item);
+
+}
+
+
+
+}
 
 

@@ -1,11 +1,19 @@
-<div class="header">
-  <div class="navbar">
-    <h1 class="active">Tcat Tour Packages</h1>
-    <a routerLink="/viewCart" class="right">
-      <mat-icon aria-hidden="false" aria-label="Example home icon"><span class="material-icons" >
-          shopping_cart
-        </span></mat-icon>
-        <div style="font-size: 10px;" class="badge bg-danger" >{{totalItem}}</div>
-    </a>
+
+
+  
+  <div class="header">
+    
+      <a href="#default"  class="logo">Tcat Tour Packages </a>
+      <div class="header-right">
+      <a routerLink="/viewCart" >
+        <mat-icon style="color: black;" aria-hidden="false" aria-label="Example home icon"><span class="material-icons" >
+            shopping_cart
+          </span></mat-icon>
+          
+      </a>
+      <div class="header-right" >
+        <h5 style="font-size: 15px;">{{totalItem}} item(s)</h5>
+        <h3 style="font-size: 18px; color: red;">{{grandTotal}}</h3>
+        </div>
+    </div>
   </div>
-</div>

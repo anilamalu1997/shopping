@@ -12,37 +12,32 @@
 
 
 <div class="container">
-  <div class="card-deck flex-row flex-nowrap">
-
-
-    <div class="card">
-      <div>
-        <a [routerLink]="['/hotel',detailItem.id]" (click)="viewProduct(detailItem)">
-          <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
-          <img src="\assets\img\location\{{detailItem.location}}.png" alt="Card image cap">
-        </a>
-      </div>
 
 
 
 
 
-      <div class="card-body">
-        <h3 class="card-sub align-middle">{{detailItem.name}}</h3>
-        <p class="time-card">Rs.{{detailItem.price}}</p>
-        <a class="right" (click)=addToCart(detailItem) >
-          <mat-icon aria-hidden="false" aria-label="Example home icon"><span
-              class="material-icons">
-              add_shopping_cart
-            </span></mat-icon>
-            
-        </a>
+  <a  [routerLink]="['/hotel',detailItem.id]" (click)="viewProduct(detailItem)">
+    <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
+    <img src="\assets\img\location\{{detailItem.location}}.png" alt="Card image cap">
+  </a>
 
-        
 
-      </div>
-    </div>
+
+
+
+
+  <div >
+    <h3>{{detailItem.name}}</h3>
+    <p >Rs.{{detailItem.price}}</p>
+    <a  (click)=addToCart(detailItem)>
+      <mat-icon aria-hidden="false" ><span class="material-icons">
+          add_shopping_cart
+        </span></mat-icon>
+
+    </a>
+
+
 
   </div>
-
 </div>
