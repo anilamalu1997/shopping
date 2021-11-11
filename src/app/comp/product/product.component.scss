@@ -8,10 +8,9 @@
 //  //border: 3px solid #ededed;
   
 // }
-.grid
-{
-  display: grid;
-  grid-gap: 10px;
-  background-color:white ;
-  padding: 10px;
-}
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: #f1f3fa;
+	padding: 10px;
+  }

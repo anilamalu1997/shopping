@@ -1,7 +1,7 @@
 <div>
   
     <div *ngIf="productList.length > 0">    
-      <div *ngFor="let detailItem of productList" class="grid">
+      <div *ngFor="let detailItem of productList" class="grid-container" >
         <app-product-card [detailItem]="detailItem"></app-product-card>        
       </div>    
     </div>

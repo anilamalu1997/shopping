@@ -1,33 +1,15 @@
-<!-- <a routerLink="/home/view" routerLinkActive="active"> <div class="card ">
-  <img
-      src="https://global-uploads.webflow.com/5ef5480befd392489dacf544/5f9f5e5943de7e69a1339242_5f44a7398c0cdf460857e744_img-image.jpeg"
-      class="card-img-top" alt="...">
- 
-  <div class="card-body">
-    <h3 class="card-text">{{detailItem.name}}</h3>
-    <h3 class="rate">Rs.{{detailItem.price}}</h3>
-  </div>
-</div>
-</a> -->
 
 
-<div class="container">
-
-
-
-
-
+<div class="grid-container">
+  <div class="grid-item">
+    <div  class="container">
   <a  [routerLink]="['/hotel',detailItem.id]" (click)="viewProduct(detailItem)">
-    <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
-    <img src="\assets\img\location\{{detailItem.location}}.png" alt="Card image cap">
+   
+    <img class="img"  src="\assets\img\location\{{detailItem.location}}.png" alt="Card image cap">
   </a>
 
 
-
-
-
-
-  <div >
+  
     <h3>{{detailItem.name}}</h3>
     <p >Rs.{{detailItem.price}}</p>
     <a  (click)=addToCart(detailItem)>
@@ -37,7 +19,6 @@
 
     </a>
 
-
-
+  </div>
   </div>
 </div>
