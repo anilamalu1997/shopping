@@ -1,4 +1,4 @@
-export class details{
+export class details {
     // find(arg0: (details: any) => boolean) {
     //   throw new Error('Method not implemented.');
     // }
@@ -6,8 +6,8 @@ export class details{
     name: any;
     details: any;
     price: any;
-    starRating:any;
+    starRating: any;
     location: any;
-    
-   
+
+
 }

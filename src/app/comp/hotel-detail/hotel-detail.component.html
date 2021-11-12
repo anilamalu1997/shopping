@@ -1,94 +1,96 @@
 <div class="body">
-<div class="grid" >
-<div class="card pad" >
+  <div class="grid">
+    <div class="card pad">
 
 
-  <div style="display: flex;">
-    <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
-    <img class="card-img-top img"  src="assets\img\location\{{list.location}}.png" alt="Card image cap">
-
-
-
-
-    <div class="col">
-      <h2 class="logo">{{list.id}}</h2>
-      <h2 class="clr">Rs {{list.price}}</h2>
-      <h3 class="">{{list.details}}</h3>
       <div style="display: flex;">
-      <button class="bn">
-        <mat-icon aria-hidden="false" aria-label="Example home icon"><span class="material-icons">
-            add_shopping_cart
-          </span></mat-icon>Add to Cart
-      </button>
-      <div style="padding-left: 50px;">
-      <button class="bn " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <mat-icon aria-hidden="false" aria-label="Example home icon"><span
-            class="material-icons review">rate_review</span></mat-icon>Add Review
-      </button>
-      </div>
+        <!-- <img class="" alt="Card image cap"> >{{detailItem.image}} -->
+        <img class="card-img-top img" src="assets\img\location\{{list.location}}.png" alt="Card image cap">
+
+
+
+
+        <div class="col">
+          <h2 class="logo">{{list.id}}</h2>
+          <h2 class="clr">Rs {{list.price}}</h2>
+          <h3 class="">{{list.details}}</h3>
+          <div style="display: flex;">
+            <button class="bn" (click)=addToCart(list)>
+              <mat-icon aria-hidden="false" aria-label="Example home icon"><span class="material-icons">
+                  add_shopping_cart
+                </span></mat-icon>Add to Cart
+            </button>
+            <div style="padding-left: 50px;">
+              <button class="bn " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <mat-icon aria-hidden="false" aria-label="Example home icon"><span
+                    class="material-icons review">rate_review</span></mat-icon>Add Review
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
 
 
-  <div  style="display: flex;">
-    <h3 class="review" >Review</h3>
-    <h3 class="review">(2)</h3>
-  </div>
+    <div style="display: flex;">
+      <h3 class="review">Review</h3>
+      <h3 class="review">(2)</h3>
+    </div>
 
 
-  
+
     <div *ngFor=" let row of reviewData">
-      <div class="card " >
+      <div class="card ">
         <div class="row">
           <div class="col">
-        <img class="pic"  src="https://i.pinimg.com/originals/1a/55/23/1a5523ed77eae11f78d73dd3864c4379.jpg">
-      <div>
+            <img class="pic" src="https://i.pinimg.com/originals/1a/55/23/1a5523ed77eae11f78d73dd3864c4379.jpg">
+            <div>
+            </div>
+            <div class="row">
+              <p class="name">{{row.name}}</p>
+              <p class="dis"> {{row.review}}</p>
+
+            </div>
+          </div>
         </div>
-        <div class="row">
-        <p class="name" >{{row.name}}</p>
-      <p class="dis"> {{row.review}}</p>
-      
+
       </div>
     </div>
-    </div>
-
-</div>
-   </div>
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button style="padding-left: 900px;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="formValue">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp">
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button style="padding-left: 900px;" type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Review</label>
-            <input type="text" formControlName="review" class="form-control" id="exampleInputPassword1">
-          </div>
+          <div class="modal-body">
+            <form [formGroup]="formValue">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+                  aria-describedby="emailHelp">
 
-        </form>
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <button (click)="postReview(); viewReview(reviewData)" style="background-color:#713ab7;" type="button" class="btn btn-primary">Add Review</button>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Review</label>
+                <input type="text" formControlName="review" class="form-control" id="exampleInputPassword1">
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button (click)="postReview(); viewReview(reviewData)" style="background-color:#713ab7;" type="button"
+              class="btn btn-primary">Add Review</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>

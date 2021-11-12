@@ -1,8 +1,8 @@
-export class list{
+export class list {
     id: any;
     name: any;
     details: any;
     price: any;
-    starRating:any;
+    starRating: any;
     location: any;
 }

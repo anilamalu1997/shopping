@@ -12,9 +12,10 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let item of product, let i = index">
-                    <td> <img class="card-img-top img"  src="assets\img\location\{{item.location}}.png" alt="Card image cap">
-                    {{item.name}}</td>
+                <tr *ngFor="let item of product; let i = index">
+                    <td> <img class="card-img-top img" src="assets\img\location\{{item.location}}.png"
+                            alt="Card image cap">
+                        {{item.name}}</td>
                     <td>{{item.quantity}}</td>
                     <td class="clr">Rs {{item.price}}</td>
                     <td class="clr">Rs {{item.total}}</td>
@@ -37,13 +38,13 @@
 
         </table>
     </div>
-    </div>
+</div>
 
-    <!-- </ng-container> -->
+<!-- </ng-container> -->
 
 
 
-    <!-- 
+<!-- 
 <ng-container *ngIf="product.length == 0">
     <div class="container">
         <div class="card">

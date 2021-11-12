@@ -28,8 +28,8 @@ export class ApiService {
     // }))
   }
 
-  viewReview(item:any){
-    this.item=item;
+  viewReview(item: any) {
+    this.item = item;
   }
 
   // viewReview(review: reviewModal) {

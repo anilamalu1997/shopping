@@ -10,14 +10,14 @@ import { details } from 'src/app/modals/productDetails';
 export class ProductComponent implements OnInit {
 
   public productList: Array<details> = [];
-  
-  
- 
-   
+
+
+
+
   //response: any;
 
 
-  constructor(private productService: ProductService) {  }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
 
@@ -31,32 +31,32 @@ export class ProductComponent implements OnInit {
       //this.response=response;
       //console.log(response);
 
-       //console.log(this.productList.length);
-       
+      //console.log(this.productList.length);
+
 
 
       if (response !== undefined &&
         response.length > 0) {
         this.productList = [...response];
-        this.productList.forEach((a:any)=>{
-          Object.assign(a,{quantity:1,total:a.price});
+        this.productList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price });
         });
         //console.log(this.productList.length);
-      // console.log(this.productList);
+        // console.log(this.productList);
         // console.log(this.productList);
       }
 
-      
+
     })
     //console.log(this.productService.fetchData());
-  
-    }
-  
-   
-    getProduct(id:any){
-      // return (this.productList.)
-    }
-  
 
-  
+  }
+
+
+  getProduct(id: any) {
+    // return (this.productList.)
+  }
+
+
+
 }

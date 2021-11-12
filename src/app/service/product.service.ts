@@ -26,16 +26,16 @@ export class ProductService {
   // }
   fetchData() {
     return this.http.get('assets/json/hotels.json');
-    
+
   }
 
-  getProduct(id:any){
+  getProduct(id: any) {
 
-    
+
     // return this..find(
     //   this.detailItem.id === id);
-      }
-  
+  }
+
   // getProduct(){
   //   return this.productList.asObservable();
   // }
@@ -72,4 +72,4 @@ export class ProductService {
   //     this.productList.next(this.productList);
   //     }
 
-    }
+}

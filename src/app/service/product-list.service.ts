@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductListService {
-item:any=[];
+  item: any = [];
   constructor() { }
 
 
-  viewProduct(item:any){
-   this.item=item;
+  viewProduct(item: any) {
+    this.item = item;
   }
 }

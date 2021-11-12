@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, observable } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -7,36 +8,41 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./view-cart.component.scss']
 })
 export class ViewCartComponent implements OnInit {
-// cart:any=[];
-//  items:any;
- public product : any =[];
- public grandTotal !: number ;
- 
-  constructor(private cartService:CartService) { }
+  // cart:any=[];
+  //  items:any;
+  public product: any = [];
+  public grandTotal !: number;
+  
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.getProduct()
-    .subscribe(res=>{
-      this.product = res;
-      this.grandTotal = this.cartService.getTotalPrice();
-    })
-  // this.cart= this.cartService.name;
-  //  console.log(this.cart.id);
-  // this.items = this.cartService.getItems();
- 
-  // this.cartService.list.asObservable().subscribe(del=>{
-  //   this.items = del;
-    
+      .subscribe(res => {
+        this.product = res;
+        
+      })
 
-  // });
-  // console.log(this.items);
+      this.cartService.cartTotal.subscribe(res =>{
+        this.grandTotal =res;
+      })
+    // this.cart= this.cartService.name;
+    //  console.log(this.cart.id);
+    // this.items = this.cartService.getItems();
+
+    // this.cartService.list.asObservable().subscribe(del=>{
+    //   this.items = del;
+
+
+    // });
+    // console.log(this.items);
   }
 
-  removeItem(item:any){
+  removeItem(item: any) {
     this.cartService.removeCartItem(item);
   }
-  
-  emptyCart(){
+
+  emptyCart() {
     this.cartService.removeAllCart();
   }
   // removeCartItem(rem:any){
@@ -44,6 +50,6 @@ export class ViewCartComponent implements OnInit {
   //   this.cartService.removeCartItem(rem);
 
   // }
-  
- 
+
+
 }

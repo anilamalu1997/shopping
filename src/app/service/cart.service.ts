@@ -9,62 +9,75 @@ import { details } from 'src/app/modals/productDetails';
   providedIn: 'root'
 })
 export class CartService {
-//   name: details[] = [];
-// public list=new BehaviorSubject<any>([]);
-public cartItemList:any=[]
-public productList = new BehaviorSubject<any>([]);
+  //   name: details[] = [];
+  public list=new BehaviorSubject<any>([]);
 
+  public cartItemList: any = []
+  public productList = new BehaviorSubject<any>([]);
+  public cartTotal = new BehaviorSubject<any>(0);
 
   constructor() { }
 
-getProduct(){
- return this.productList.asObservable();
-}
-
-setProduct(product:any){
-  this.cartItemList.push(product);
-  this.productList.next(product);
-}
-
-addToCart(product:any){
-  this.cartItemList.push(product);
-  this.productList.next(this.cartItemList);
-  this.getTotalPrice();
-  console.log(this.cartItemList);
-}
-
-getTotalPrice() : number{
-  let grandTotal = 0;
-  this.cartItemList.map((a:any)=>{
-    grandTotal += a.total;
-  });
-  return grandTotal;
-}
-
-removeCartItem(product:any){
-this.cartItemList.map((a:any, index:any)=>{
-  if(product.id === a.id){
-    this.cartItemList.splice(index,1);
+  getProduct() {
+    return this.productList.asObservable();
   }
-})
-this.productList.next(this.cartItemList);
-}
 
-removeAllCart(){
-  this.cartItemList=[];
-  this.productList.next(this.cartItemList);
-}
+  setProduct(product: any) {
+    this.cartItemList.push(product);
+    this.productList.next(product);
+  }
+
+  addToCart(product: any) {
+
+    const exist = this.cartItemList.find((item:any)=>{
+      return item.id === product.id;
+    });
+    if(exist)
+     exist.quantity++;
+    
+    else
+    
+
+    this.cartItemList.push(product);
+    this.productList.next(this.cartItemList);
+    this.getTotalPrice();
+    console.log(this.cartItemList);
+    console.log(exist);
+  }
+
+  getTotalPrice(): number {
+    let grandTotal = 0;
+    this.cartItemList.map((a: any) => {
+      grandTotal += a.total;
+    });
+    this.cartTotal.next(grandTotal);
+    return grandTotal;
+  }
+
+  removeCartItem(product: any) {
+    this.cartItemList.map((a: any, index: any) => {
+      if (product.id === a.id) {
+        this.cartItemList.splice(index, 1);
+      }
+    })
+    this.productList.next(this.cartItemList);
+  }
+
+  removeAllCart() {
+    this.cartItemList = [];
+    this.productList.next(this.cartItemList);
+  }
 
   // addToCart(list:details) {
-    // const exist = this.name.find((item) => {
-    //   return item.id === name.id;
-    // });
-    // if(exist)
+  // const exist = this.name.find((item) => {
+  //   return item.id === name.id;
+  // });
+  // if(exist)
 
-    //  else
-    // this.name.push(list);
-    // this.list.next(name);
-    // console.log(name);
+  //  else
+  // this.name.push(list);
+  // this.list.next(name);
+  // console.log(name);
   // }
 
   // getItems() {
@@ -77,7 +90,7 @@ removeAllCart(){
   //   return this.name;
   // }
 
-  
+
   // removeCartItem(product: any) {
   //   this.cartItemList.map((a: any, index: any) => {
   //     if (product.id === a.id) {
@@ -135,3 +148,4 @@ removeAllCart(){
   //   this.productList.next(this.productList);
   // }
 }
+

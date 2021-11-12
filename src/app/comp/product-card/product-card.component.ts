@@ -14,8 +14,8 @@ import { ProductListService } from 'src/app/service/product-list.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  public grandTotal !: number ;
- public hotelList : any;
+  public grandTotal !: number;
+  public hotelList: any;
 
 
 
@@ -28,56 +28,57 @@ export class ProductCardComponent implements OnInit {
   // response:any;
   // public confirmationMessage = '';
   // public errorMessage = '';
-  
- 
+
+
   //  flag:boolean=false;
   //  spin:boolean=false;
   //  fav=false;
-  constructor(private cartService:CartService, private route:ActivatedRoute, private productDetail: ProductListService, private productService:ProductService) { }
+  constructor(private cartService: CartService, private route: ActivatedRoute, private productDetail: ProductListService, private productService: ProductService) { }
 
   ngOnInit(): void {
-const id = this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
 
-this.productService.fetchData().subscribe((response: any) => {
-  if (response !== undefined &&
-    response.length > 0) {
-    this.productList = [...response];
-    this.productList.forEach((a:any)=>{
-      Object.assign(a,{quantity:1,total:a.price});
-    });
+    this.productService.fetchData().subscribe((response: any) => {
+      if (response !== undefined &&
+        response.length > 0) {
+        this.productList = [...response];
+        this.productList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price });
+        });
+      }
+
+
+    })
+
+
   }
 
-  
-})
+  addToCart(detailItem: any) {
 
+    this.cartService.addToCart(detailItem);
+    window.alert('Added to cart!');
+  }
 
-     }
-
-     addToCart(detailItem:any){
-
-      this.cartService.addToCart(detailItem);
-     }
-  
-  viewProduct(item:any) {
+  viewProduct(item: any) {
     this.productDetail.viewProduct(item);
   }
 
 
-    //  id = this.route.snapshot.params['id'];
-   
-    //  return this.productList.find(details=>this.detailItem.id === id);
-    //  console.log(id);
-   
-    
+  //  id = this.route.snapshot.params['id'];
 
-    // this.detailItem.name = this.detailItem.name;
-    // this.detailItem.price=this.detailItem.price;
-    
-    // this.cartService.addToCart(this.detailItem).subscribe((response: any) => { if (response !== undefined &&
-    //   response.length > 0) {
-    //   this.productList = [...response]; });
+  //  return this.productList.find(details=>this.detailItem.id === id);
+  //  console.log(id);
+
+
+
+  // this.detailItem.name = this.detailItem.name;
+  // this.detailItem.price=this.detailItem.price;
+
+  // this.cartService.addToCart(this.detailItem).subscribe((response: any) => { if (response !== undefined &&
+  //   response.length > 0) {
+  //   this.productList = [...response]; });
   // return this.detailItem.find(this.detailItem=>this.detailItem.id === id);
-  
+
 
 
   // addToCart(name:any){
@@ -85,7 +86,7 @@ this.productService.fetchData().subscribe((response: any) => {
   //   //console.log(name);
   // }
 
-  
+
 
   // addToCart(name:details){
   //   this.cartService.addToCart(name);

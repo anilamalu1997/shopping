@@ -1,27 +1,24 @@
-
-
 <div class="body">
-      <div class="card show" >
-  <a  [routerLink]="['/hotel',detailItem.id]" (click)="viewProduct(detailItem)">
-   
-    <img   src="\assets\img\location\{{detailItem.location}}.png" class="card-img-top img"  alt="Card image cap">
-  </a>
+  <div class="card show">
+    <a [routerLink]="['/hotel',detailItem.id]" (click)="viewProduct(detailItem)">
 
-<div class="card-body">
-  
-    <h3>{{detailItem.name}}</h3>
-    <div style="display:flex;">
-      
-    <p  class="card-text clr" >Rs.{{detailItem.price}}</p>
-    <a class="cart" (click)=addToCart(detailItem)>
-      <mat-icon style="padding-left: 160px;"   aria-hidden="false" ><span class="material-icons">
-          add_shopping_cart
-        </span></mat-icon>
-
+      <img src="\assets\img\location\{{detailItem.location}}.png" class="card-img-top img" alt="Card image cap">
     </a>
-    </div>
+
+    <div class="card-body">
+
+      <h3>{{detailItem.name}}</h3>
+      <div style="display:flex;">
+
+        <p class="card-text clr">Rs.{{detailItem.price}}</p>
+        <a class="cart" (click)=addToCart(detailItem)>
+          <mat-icon style="padding-left: 160px;" aria-hidden="false"><span class="material-icons">
+              add_shopping_cart
+            </span></mat-icon>
+
+        </a>
+      </div>
     </div>
 
   </div>
-  </div>
-  
+</div>

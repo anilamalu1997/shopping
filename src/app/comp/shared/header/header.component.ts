@@ -7,17 +7,22 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-public totalItem : number=0;
-public grandTotal !: number ;
-  constructor(private cartService:CartService) { }
+  public product: any = [];
+  public totalItem: number = 0;
+  public grandTotal: number = 0;
+  
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-this.cartService.getProduct()
-.subscribe(res=>{
-this.totalItem=res.length;
-})
+    this.cartService.getProduct()
+      .subscribe(res => {
+        this.totalItem = res.length;
+      })
 
-this.grandTotal = this.cartService.getTotalPrice();
+    this.cartService.cartTotal
+    .subscribe(res=>{
+this.grandTotal = res;
+    })
   }
 
 }
