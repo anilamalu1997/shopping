@@ -17,12 +17,15 @@ export class HotelDetailComponent implements OnInit {
   public reviewList: Array<review> = [];
   public specificReview: review = new review;
 
+  
+
   formValue !: FormGroup;
   reviewModelObj: reviewModal = new reviewModal;
   id: details = new details;
   list: any = [];
   reviewData !: any;
   data: any;
+  selectedValue: any;
   
 
 
@@ -103,6 +106,11 @@ export class HotelDetailComponent implements OnInit {
 
   }
 
+
+  countStar(star: any) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
+}
 
 
 }
