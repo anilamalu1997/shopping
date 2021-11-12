@@ -5,6 +5,8 @@
 
 .img{
     border-radius: 15px 15px 0px 0px;
+    height: 178px;
+    width: 377px;
 }
 
 .clr{
@@ -16,8 +18,7 @@
 
   
 .show{
-    width:18rem;
-     height: 20rem;
+   
       border-radius: 15px;
       background-color: #fff;
       color: #707070;
@@ -26,4 +27,9 @@
 
   .body{
       background-color: #f1f3fa;
+  }
+
+  .card{
+      width: 377px;
+      height: 276px;
   }
