@@ -84,6 +84,19 @@
                 <input type="text" formControlName="review" class="form-control" id="exampleInputPassword1">
               </div>
 
+
+              
+
+              <div class="row">
+                <div class="col-sm-12">
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                        <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}"><span class="material-icons-outlined">
+                          star_border_purple500
+                          </span><i   class="fa fa-star "></i></li> 
+                    </ul>
+                </div>
+              </div>
+
               
 
             </form>
