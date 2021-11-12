@@ -1,51 +1,49 @@
 <!-- <ng-container *ngIf="product.length !=0"> -->
-<div class="cart-item" >
-    <div class="container">
-        <div class="card-table">
-            <div class="cart-product">
-                <table class="table table.responsive">
-                    <thead>
-                        <tr>
-                            <th>Product Description</th>
-                            <th>Qty</th>    
-                            <th>Unit Price</th>
-                            <th>Total Price</th>
-                        </tr>
-                    </thead>
+<div class="body">
+    <div class="card">
+        <table class="table  ">
+            <thead>
+                <tr>
+                    <th>Product Description</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
 
-                    <tbody>
-                        <tr *ngFor="let item of product, let i = index">
-                            <td>{{item.name}}</td>
-                            <td>{{item.quantity}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.total}}</td>
-                            <td>
-                                <button class="btn" (click)="removeItem(item)" class="btn ">Remove</button>
-                            </td>
-                            <td>
-                                <button class="btn">Remove All</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td>Cart Price</td>
+            <tbody>
+                <tr *ngFor="let item of product, let i = index">
+                    <td> <img class="card-img-top img"  src="assets\img\location\{{item.location}}.png" alt="Card image cap">
+                    {{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td class="clr">Rs {{item.price}}</td>
+                    <td class="clr">Rs {{item.total}}</td>
+                    <td>
+                        <button class="btn" (click)="removeItem(item)" class="btn ">Remove</button>
+                    </td>
+                    <td>
+                        <button class="btn">Remove All</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>Cart Price</td>
 
-                            <td>Rs {{grandTotal}}</td>
-                            <td><button class ="btn" (click)="emptyCart">Empty Cart</button></td>
-                        </tr>
-                    </tbody>
-            
-           
-            </table>
-        </div>
+                    <td class="clr">Rs {{grandTotal}}</td>
+                    <td><button class="btn" (click)="emptyCart">Empty Cart</button></td>
+                </tr>
+            </tbody>
+
+
+        </table>
     </div>
-</div>
-</div>
-<!-- </ng-container> -->
+    </div>
+
+    <!-- </ng-container> -->
 
 
 
-<!-- 
+    <!-- 
 <ng-container *ngIf="product.length == 0">
     <div class="container">
         <div class="card">

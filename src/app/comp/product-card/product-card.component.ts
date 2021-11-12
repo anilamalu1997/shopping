@@ -14,6 +14,7 @@ import { ProductListService } from 'src/app/service/product-list.service';
 })
 export class ProductCardComponent implements OnInit {
 
+  public grandTotal !: number ;
  public hotelList : any;
 
 

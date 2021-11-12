@@ -1,28 +1,124 @@
 
 
-.card {
-	background: #fff;
-	border-radius: 0px;
-	background: #fff;
-		width: 20rem;
+// .card {
+// 	background: #fff;
+// 	border-radius: 0px;
+// 	background: #fff;
+// 		width: 20rem;
+// }
+
+// .card img {
+// 	width: 200px;
+// 	height: 200px;
+// 	// margin: botton 15px;
+// 	// transition: 0.3px ease-in-out;
+// }
+
+// .btn{
+//     height: 64px;
+// border-radius: 5px;
+// background: #713ab7;
+// border: 1px solid #707070;
+// box-shadow: 0px 3px 6px rgba(127, 67, 192, 0.16);
+
+// }
+
+// .review{
+//    color:white;
+// }
+
+.grid{
+	padding-top: 15px;
 }
 
-.card img {
-	width: 200px;
-	height: 200px;
-	// margin: botton 15px;
-	// transition: 0.3px ease-in-out;
+.pad{
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	}
+
+.col{
+	padding-left: 30px;
 }
 
-.btn{
-    height: 64px;
-border-radius: 5px;
-background: #713ab7;
-border: 1px solid #707070;
-box-shadow: 0px 3px 6px rgba(127, 67, 192, 0.16);
-
+.img{
+	height: 220px;
+	 width: 300px;
+	  border-radius: 15px;
 }
 
-.review{
-   color:white;
+.card{
+	background:#fff;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(147, 170,185,0.16);
+    border-radius: 15px;
+}
+
+.logo{
+	font-size: 25px;
+   
+    padding-bottom: 5px;
+}
+
+.clr{
+    color:#d21a1a;
+    font-size: 20px;
+    font-weight: normal;
+    
+  }
+  .bn{
+	  height: 64px;
+	  width: 150px;
+	  border-radius: 5px;
+	  background: #713ab7;
+	  border: 1px solid #707070;
+	  box-shadow: 0px 3px 6px rgba(127,67,192,0.16);
+	 
+  }
+
+  .body{
+	  background: #f1f3fa;
+	  color: #707070;
+  }
+
+  .review{
+	font-size: 20px;
+   font-weight: normal;
+    padding-bottom: 5px;
+	padding-top: 15px;
+  }
+
+  .pic{
+	  padding-left: 15px;
+	  border-radius: 50px;
+	  height: 170px;
+	 width: 220px;
+	 border: 1px;
+  }
+
+  .name{
+	font-size: 20px;
+	font-weight: normal;
+	 padding-bottom: 10px;
+	 padding-top: 15px;
+	 padding-left: 30px;
+  }
+
+  .dis{
+	font-size: 15px;
+	font-weight: normal;
+	 padding-bottom: 5px;
+	 padding-top: 15px;
+	 padding-left: 30px;
+  }
+.add{
+	float: right;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  background: #713ab7;
+//   border: 1px solid #707070;
+  box-shadow: 0px 3px 6px rgba(127,67,192,0.16);
+  color:#713ab7 ;
+  
 }

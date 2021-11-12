@@ -11,6 +11,7 @@ export class ViewCartComponent implements OnInit {
 //  items:any;
  public product : any =[];
  public grandTotal !: number ;
+ 
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {

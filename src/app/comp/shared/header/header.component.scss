@@ -1,7 +1,9 @@
 .header{
     overflow:  hidden;
     background:#fff;
-    padding: 20px 10px;
+    padding: 10px 10px 5px 15px;
+    box-shadow: 0px 5px 20px rgba(147, 170,185,0.16);
+    
 }
 
 .header a {
@@ -18,8 +20,13 @@
 .header a.logo{
     font-size: 25px;
     font-weight: bold;
+    padding-bottom: 5px;
 }
 
 .header-right{
     float: right;
+}
+
+body{
+    margin: 0 px;
 }
